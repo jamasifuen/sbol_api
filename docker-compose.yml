@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  personalapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      # Configuración de la aplicación
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      
+      # Configuración de Base de Datos
+      - DB_SERVER=${DB_SERVER:-host.docker.internal,1433}
+      - DB_DATABASE=${DB_DATABASE:-SIMACHDB}
+      - DB_USER=${DB_USER:-api_personal}
+      - DB_PASSWORD=${DB_PASSWORD:-api_personal}
+      
+      # Configuración JWT
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-PersonalAPI_SuperSecretKey_MinimumLengthRequired_ForJWT_Signature_2024}
+      - JWT_ISSUER=${JWT_ISSUER:-PersonalAPI}
+      - JWT_AUDIENCE=${JWT_AUDIENCE:-PersonalAPI_Users}
+      - JWT_EXPIRY_MINUTES=${JWT_EXPIRY_MINUTES:-60}
+      
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - api-network
+    volumes:
+      - ./logs:/app/logs
+
+networks:
+  api-network:
+    driver: bridge
