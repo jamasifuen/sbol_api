@@ -20,9 +20,9 @@ namespace PersonalAPI.Controllers
         }
 
         /// <summary>
-        /// Obtiene todo el personal
+        /// Obtiene todo el personal con tipo de trabajo E (Empleado) u O (Obrero)
         /// </summary>
-        /// <returns>Lista de personal</returns>
+        /// <returns>Lista de personal filtrada por tipo de trabajo</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Personal>>> GetAll()
         {

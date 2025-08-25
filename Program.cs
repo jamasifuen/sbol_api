@@ -116,6 +116,25 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<IPersonalService, PersonalService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+    
+    options.AddPolicy("Development", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:5500")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -187,6 +206,9 @@ if (!isDocker)
 {
     app.UseHttpsRedirection();
 }
+
+// Habilitar CORS
+app.UseCors("AllowAll");
 
 // Importante: El orden es crítico
 app.UseAuthentication();  // Debe ir antes de UseAuthorization

@@ -18,7 +18,7 @@ namespace PersonalAPI.Services.Auth
             _logger = logger;
         }
 
-        public async Task<AuthResponse> LoginAsync(LoginModel loginModel)
+        public Task<AuthResponse> LoginAsync(LoginModel loginModel)
         {
             try
             {
@@ -28,11 +28,11 @@ namespace PersonalAPI.Services.Auth
                 if (!ValidateCredentials(loginModel.Username, loginModel.Password))
                 {
                     _logger.LogWarning($"Credenciales inválidas para usuario: {loginModel.Username}");
-                    return new AuthResponse
+                    return Task.FromResult(new AuthResponse
                     {
                         Success = false,
                         Message = "Credenciales inválidas"
-                    };
+                    });
                 }
 
                 // Generar token JWT
@@ -41,23 +41,23 @@ namespace PersonalAPI.Services.Auth
 
                 _logger.LogInformation($"Login exitoso para usuario: {loginModel.Username}");
 
-                return new AuthResponse
+                return Task.FromResult(new AuthResponse
                 {
                     Success = true,
                     Token = token,
                     Username = loginModel.Username,
                     Expires = expires,
                     Message = "Login exitoso"
-                };
+                });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error durante el login para usuario: {loginModel.Username}");
-                return new AuthResponse
+                return Task.FromResult(new AuthResponse
                 {
                     Success = false,
                     Message = "Error interno del servidor"
-                };
+                });
             }
         }
 

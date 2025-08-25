@@ -19,7 +19,9 @@ namespace PersonalAPI.Services
         {
             try
             {
-                return await _context.Personal.ToListAsync();
+                return await _context.Personal
+                    .Where(p => p.TipTrab == "E" || p.TipTrab == "O")
+                    .ToListAsync();
             }
             catch (Exception ex)
             {

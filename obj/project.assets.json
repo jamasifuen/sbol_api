@@ -4866,27 +4866,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joaos\\.nuget\\packages\\": {}
+    "C:\\Users\\jamasifuen\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\2.API_PersonalSIMAI\\PersonalAPI.csproj",
+      "projectUniqueName": "A:\\Projects\\BoletasPago\\API\\sbol_api\\PersonalAPI.csproj",
       "projectName": "PersonalAPI",
-      "projectPath": "C:\\Projects\\2.API_PersonalSIMAI\\PersonalAPI.csproj",
-      "packagesPath": "C:\\Users\\joaos\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\2.API_PersonalSIMAI\\obj\\",
+      "projectPath": "A:\\Projects\\BoletasPago\\API\\sbol_api\\PersonalAPI.csproj",
+      "packagesPath": "C:\\Users\\jamasifuen\\.nuget\\packages\\",
+      "outputPath": "A:\\Projects\\BoletasPago\\API\\sbol_api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\joaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jamasifuen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Appeon.SnapDevelop.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\AppeonPackages\\": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4904,7 +4912,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -4958,7 +4967,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
